@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: one-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: one-api
+  template:
+    metadata:
+      labels:
+        app: one-api
+    spec:
+      containers:
+        - name: garinlu/one-api-backend
+          image: garinlu/one-api-backend:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 3000
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 3000
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 3000

@@ -4,7 +4,7 @@ metadata:
   name: one-api
 spec:
   selector:
-    app: one-api
+    app: one-api-backend
   ports:
     - protocol: TCP
       port: 3000

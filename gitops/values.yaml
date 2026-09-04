@@ -1,0 +1,6 @@
+image:
+  oneApiBackend:
+    repository: ghcr.io/garinlu/one-api-backend
+    tag: latest
+ingress:
+  host: back.localhost

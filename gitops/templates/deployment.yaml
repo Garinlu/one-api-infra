@@ -6,15 +6,15 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: one-api
+      app: one-api-backend
   template:
     metadata:
       labels:
-        app: one-api
+        app: one-api-backend
     spec:
       containers:
-        - name: garinlu/one-api-backend
-          image: garinlu/one-api-backend:latest
+        - name: one-api-backend
+          image: "{{.Values.image.oneApiBackend.repository}}:{{.Values.image.oneApiBackend.tag}}"
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3000
